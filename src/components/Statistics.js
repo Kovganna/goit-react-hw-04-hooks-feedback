@@ -4,7 +4,7 @@ import Notification from "./Notification";
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   <div>
-    {total ? (
+    {total(good, neutral, bad) ? (
       <ul>
         <li>Good:{good}</li>
         <li>Neutral:{neutral}</li>
@@ -22,8 +22,8 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
-  total: PropTypes.number,
-  positivePercentage: PropTypes.number,
+  total: PropTypes.func,
+  positivePercentage: PropTypes.func,
 };
 
 export default Statistics;
